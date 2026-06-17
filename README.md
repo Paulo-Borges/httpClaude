@@ -1,59 +1,78 @@
-# HttpClaude
+# httpClaude
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+Aplicação Angular que consome a [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) para exibir uma lista de usuários, com tratamento de estados de carregamento e erro via RxJS.
 
-## Development server
+Repositório: [github.com/Paulo-Borges/httpClaude](https://github.com/Paulo-Borges/httpClaude)
 
-To start a local development server, run:
+## Funcionalidades
 
-```bash
-ng serve
-```
+- Listagem de usuários obtidos via `HttpClient`
+- Estados de tela (`loading`, `data`, `error`) gerenciados de forma declarativa com RxJS
+- Layout com componentes de cabeçalho e rodapé
+- Estilização com Tailwind CSS
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Stack
 
-## Code scaffolding
+| Tecnologia | Versão |
+|------------|--------|
+| Angular | 21.x |
+| TypeScript | 5.9 |
+| RxJS | 7.8 |
+| Tailwind CSS | 4.x |
+| Vitest | 4.x |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Pré-requisitos
 
-```bash
-ng generate component component-name
-```
+- [Node.js](https://nodejs.org/) (LTS recomendado)
+- npm 10+
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalação
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Clone o repositório e instale as dependências:
 
 ```bash
-ng test
+git clone https://github.com/Paulo-Borges/httpClaude.git
+cd httpClaude
+npm install
 ```
 
-## Running end-to-end tests
+## Scripts disponíveis
 
-For end-to-end (e2e) testing, run:
+| Comando | Descrição |
+|---------|-----------|
+| `npm start` | Sobe o servidor de desenvolvimento em `http://localhost:4200` |
+| `npm run build` | Gera o build de produção em `dist/` |
+| `npm run watch` | Build contínuo em modo development |
+| `npm test` | Executa os testes unitários com Vitest |
 
-```bash
-ng e2e
+## Estrutura do projeto
+
+```
+src/app/
+├── components/
+│   ├── header/          # Navegação superior
+│   └── footer/          # Rodapé
+├── user-list/           # Componente principal da listagem
+├── user-service.ts      # Serviço HTTP para buscar usuários
+├── user-state.interface.ts  # Interface de estado da tela
+├── app.ts               # Componente raiz
+└── app.config.ts        # Configuração da aplicação
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## API utilizada
 
-## Additional Resources
+O serviço `UserService` consome o endpoint:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
+GET https://jsonplaceholder.typicode.com/users
+```
+
+Cada usuário exibe nome, e-mail, username, website e empresa.
+
+## Autor
+
+**Paulo Borges** — [LinkedIn](https://www.linkedin.com/in/paulo-borges-de-almeida-b543b3242/)
+
+## Licença
+
+Este projeto é de uso privado (`private: true` no `package.json`).
