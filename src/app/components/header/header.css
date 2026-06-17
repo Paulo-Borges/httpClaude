@@ -1,0 +1,15 @@
+.flex {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+a:hover {
+    color: #df1616;
+}
+
+.nav {
+    background: #464444;
+    color: #fff;
+
+}
